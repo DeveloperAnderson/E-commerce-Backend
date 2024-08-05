@@ -1,0 +1,11 @@
+
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8«÷­´…2J$0e69ea5c-57c3-437d-92e6-949ade3e379f
+
+java:S3305"\Inject this field value directly into "authenticationManager", the only method that uses it.(ºå8¬÷­´…2J$bd7ad2c2-25ab-402b-b875-5be418bee319
+
+java:S18746"9Remove this use of "authorizeRequests"; it is deprecated.(¼´·àÿÿÿÿÿ8°÷­´…2J$e4fd026e-457b-41b5-bec9-9b16737363c4
+”
+java:S1612;"LReplace this lambda with method reference 'AbstractHttpConfigurer::disable'.(—ÜŠŠøÿÿÿÿ8²÷­´…2J$815831b5-d781-46f0-8f53-428179e961b8
+²
+java:S1128"jRemove this unused import 'org.springframework.security.web.authentication.www.BasicAuthenticationFilter'.(çìóÕûÿÿÿÿ8‚ƒæ¶…2J$dc4e3057-b7ee-4914-ad35-dcfcee445981

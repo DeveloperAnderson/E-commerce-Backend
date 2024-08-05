@@ -1,0 +1,12 @@
+
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(…Ôø²ûÿÿÿÿ8Ÿ—±µ…2J$94ab63d8-0310-4181-ab7d-fca857f42495
+ˆ
+java:S6207	"ERemove this redundant constructor which is the same as a default one.(®•î•8²—±µ…2J$26bd22df-1ce7-4168-b85d-eb7c0f96340a
+ƒ
+java:S6207"@Remove this redundant method which is the same as a default one.(²É‘ë8³—±µ…2J$34ed19e5-68ac-4c2b-a0e7-379ab2b24306
+ˆ
+java:S6207"@Remove this redundant method which is the same as a default one.(º”Ú…ûÿÿÿÿ8³—±µ…2J$4d5d9521-05c8-4bc3-85e1-0c9aeb750dd1
+ƒ
+java:S6207"@Remove this redundant method which is the same as a default one.(öŸö8³—±µ…2J$e3048eb2-77d9-4dcf-9898-b0a883d6ab19
+ƒ
+java:S6207"@Remove this redundant method which is the same as a default one.(ŠˆÂ™8³—±µ…2J$43859425-385c-4a1d-8347-9c543576c6c4

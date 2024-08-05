@@ -1,0 +1,21 @@
+
+”
+java:S1192$"LDefine a constant instead of duplicating this literal "Logeando..." 3 times.(ñ¢Àüÿÿÿÿ8÷ÿ³…2J$465822cb-eee8-44ea-b0d1-d8cd4de6ae2e
+§
+java:S14886"dImmediately return this expression instead of assigning it to the temporary variable "authResponse".(œ¤¸ş8Æ„µµ…2J$5cda5dff-cb32-4707-9243-93d13e12b01b
+r	java:S106$"+Replace this use of System.out by a logger.(ñ¢Àüÿÿÿÿ8„‚³…2J$2ab028ad-4f1d-4c7b-bdec-3301fa5f24b1
+r	java:S106%"+Replace this use of System.out by a logger.(ñ¢Àüÿÿÿÿ8ˆ‚³…2J$d194e441-500f-4098-aa06-cc732b7c9176
+r	java:S106&"+Replace this use of System.out by a logger.(ñ¢Àüÿÿÿÿ8‹‚³…2J$9436059a-abfb-491d-b2dd-2e5edcd7b425
+m	java:S106("+Replace this use of System.out by a logger.(³ÃİÖ8Œ‚³…2J$5eae5a83-64fe-4a28-8a22-8ef8c6fe785d
+m	java:S106)"+Replace this use of System.out by a logger.(ëñØú8‚³…2J$4e144a6b-25c9-4ecb-ac90-8533098752d1
+™
+java:S34571"Q%n should be used in place of \n to produce the platform-specific line separator.(ÕÅˆøÿÿÿÿ8«‚³…2J$15ccf4f5-7310-4abd-8c13-16e9cefd8588
+r	java:S1061"+Replace this use of System.out by a logger.(ÕÅˆøÿÿÿÿ8«‚³…2J$5e547569-3fac-4855-b9d8-3b1c3414ecca
+r	java:S1062"+Replace this use of System.out by a logger.(‡Æ›Õùÿÿÿÿ8°‚³…2J$8a8fbaf4-84ed-4c04-b3b1-7d93301cb2ca
+~	java:S1259"<This block of commented-out lines of code should be removed.(°í‡Ò8Õ„µµ…2J$d0189350-72e4-42c2-b714-f0a21934dc01
+‰
+java:S1128"ARemove this unused import 'org.springframework.http.HttpHeaders'.(ãŸñ×úÿÿÿÿ8ÎÿÁ¶…2J$cb4419a2-b507-4f48-b676-6e2d598ebc79
+Œ
+java:S1128	"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8ÏÿÁ¶…2J$1af519e9-abdb-40e0-9e94-fc57836c1a36
+Í
+java:S1128"„Remove this unused import 'org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration'.(İÍ»æúÿÿÿÿ8ÏÿÁ¶…2J$c8519693-10a4-4f9e-bb6c-8a8b74bfb874
