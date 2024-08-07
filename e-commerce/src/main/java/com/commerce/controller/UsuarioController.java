@@ -1,6 +1,7 @@
 package com.commerce.controller;
 
 import com.commerce.DTO.RegisterDto;
+import com.commerce.DTO.UpdateDto;
 import com.commerce.DTO.UserEntityDto;
 import com.commerce.serviceImpl.UserImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,6 @@ public class UsuarioController {
 
     @GetMapping("/getUsers")
     public Optional<List<UserEntityDto>> getUsers(){
-        System.out.println("Buscando usuario...");
         return this.userImpl.getUsers();
     }
 
@@ -49,6 +49,43 @@ public class UsuarioController {
         Map<String, String> response = new HashMap<>();
         response.put("message", "Usuario registrado exitosamente");
         response.put("username", registerDto.getUsername());
+        response.put("status", "201");
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+
+    @PutMapping("/updateUser")
+    public ResponseEntity<?> updateUser(@RequestBody UpdateDto updateDto){
+        this.userImpl.updateUser(updateDto);
+        // Devolver una respuesta JSON con el estado HTTP 201 (Created)
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Usuario actualizado exitosamente");
+        response.put("username", updateDto.getUsername());
+        response.put("status", "201");
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+
+    @PostMapping("/createUser")
+    public ResponseEntity<?> createUser(@RequestBody RegisterDto registerDto){
+        System.out.println("Creando usuario... Controller");
+        this.userImpl.createUser(registerDto);
+        // Devolver una respuesta JSON con el estado HTTP 201 (Created)
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Usuario creado exitosamente");
+        response.put("username", registerDto.getUsername());
+        response.put("status", "201");
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @DeleteMapping("/deleteUser/{username}")
+    public ResponseEntity<?> deleteUser(@PathVariable String username){
+        System.out.println("Eliminando usuario... "+username);
+        this.userImpl.deleteUser(username);
+        // Devolver una respuesta JSON con el estado HTTP 201 (Created)
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Usuario eliminado exitosamente");
+        response.put("username", username);
         response.put("status", "201");
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }

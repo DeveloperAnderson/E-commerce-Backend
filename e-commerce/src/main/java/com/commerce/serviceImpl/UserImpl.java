@@ -1,6 +1,7 @@
 package com.commerce.serviceImpl;
 
 import com.commerce.DTO.RegisterDto;
+import com.commerce.DTO.UpdateDto;
 import com.commerce.DTO.UserEntityDto;
 import com.commerce.entity.UserEntity;
 import com.commerce.entity.UserRoleEntity;
@@ -46,7 +47,6 @@ public class UserImpl  implements UsuarioService {
 
 
     public Optional<List<UserEntityDto>> getUsers() {
-        System.out.println("Buscando usuarios...");
         Iterable<UserEntity> userEntities = this.userRepository.findAll();
         if (userEntities != null) {
             System.out.println("Usuarios encontrados ");
@@ -82,8 +82,6 @@ public class UserImpl  implements UsuarioService {
         userEntity.setDisabled(true); // Por defecto
         userRepository.save(userEntity);
 
-
-
         List<UserRoleEntity> roles;
         if (registerDto.getRoles() == null) {
             roles = List.of(createDefaultRole(userEntity));
@@ -94,6 +92,55 @@ public class UserImpl  implements UsuarioService {
     }
 
 
+
+    public void createUser(RegisterDto registerDto) {
+        System.out.println("Creando usuario...");
+        UserEntity userEntity = new UserEntity();
+
+        userEntity.setUsername(registerDto.getUsername());
+        userEntity.setPassword(passwordEncoder.encode(registerDto.getPassword())); // Encode password
+        userEntity.setEmail(registerDto.getEmail());
+        userEntity.setLocked(registerDto.getLocked());
+        userEntity.setDisabled(registerDto.getDisabled()); // Por defecto
+        userRepository.save(userEntity);
+
+        System.out.println("Role que llega: " + registerDto.getRoles());
+        UserRoleEntity userRoleEntity = new UserRoleEntity();
+        userRoleEntity.setUsername(registerDto.getUsername());
+        userRoleEntity.setRole(registerDto.getRoles().get(0));
+        userRoleEntity.setGrantedDate(LocalDateTime.now());
+        userRoleEntity.setUser(userEntity);
+        userRoleRepository.save(userRoleEntity);
+
+    }
+
+
+    public void updateUser(UpdateDto updateDto) {
+        System.out.println("Actualizando usuario...");
+        Optional<UserEntity> optionalUserEntity = userRepository.findByUsername(updateDto.getUsername());
+        if (optionalUserEntity.isPresent()) {
+            UserEntity userEntity = optionalUserEntity.get();
+            userEntity.setEmail(updateDto.getEmail());
+            userEntity.setLocked(updateDto.getLocked());
+            userEntity.setDisabled(updateDto.getDisabled());
+
+            // Update roles
+            List<UserRoleEntity> existingRoles = userRoleRepository.findByUsername(userEntity.getUsername());
+            System.out.println("Roles encontrados: " + existingRoles.toString());
+            userRoleRepository.deleteAll(existingRoles);
+
+
+            List<UserRoleEntity> newRoles = updateDto.getRoles().stream()
+                    .map(role -> createRole(userEntity, role))
+                    .collect(Collectors.toList());
+            userRoleRepository.saveAll(newRoles);
+
+            userRepository.save(userEntity);
+        } else {
+            throw new RuntimeException("User not found");
+        }
+    }
+
     private UserRoleEntity createDefaultRole(UserEntity userEntity) {
         UserRoleEntity userRoleEntity = new UserRoleEntity();
         userRoleEntity.setUsername(userEntity.getUsername());
@@ -102,6 +149,18 @@ public class UserImpl  implements UsuarioService {
         userRoleEntity.setUser(userEntity);
         return userRoleEntity;
     }
+
+    public void deleteUser(String username) {
+        System.out.println("Eliminando usuario...");
+        Optional<UserEntity> optionalUserEntity = userRepository.findByUsername(username);
+        System.out.println("Usuario encontrado: " + optionalUserEntity.toString());
+        if (optionalUserEntity.isPresent()) {
+            userRepository.delete(optionalUserEntity.get());
+        } else {
+            throw new RuntimeException("User not found");
+        }
+    }
+
 
 
     private UserRoleEntity createRole(UserEntity userEntity, String role) {

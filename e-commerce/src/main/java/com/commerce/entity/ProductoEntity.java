@@ -11,6 +11,8 @@ import lombok.Setter;
 @Table(name = "productos", schema = "commerce")
 @NoArgsConstructor
 public class ProductoEntity {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,6 +29,11 @@ public class ProductoEntity {
     @Column(length = 100)
     private String categoria;
 
+    @Column(nullable = false)
+    private Boolean activo;
+
     @OneToOne(mappedBy = "producto", cascade = CascadeType.ALL)
     private InventarioEntity inventario;
+
+
 }

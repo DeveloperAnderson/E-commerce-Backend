@@ -55,6 +55,18 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/log-in").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/usuario/sign-up").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/usuario/getUsers").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/api/v1/usuario/updateUser").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/v1/usuario/deleteUser").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/usuario/createUser").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/product/getProducts").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/product/registerProduct").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/api/v1/product/updateProduct").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/ventas/registrar").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/reportes/productos-activos").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/reportes/top5-clientes-frecuentes").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/reportes/top5-productos-vendidos").permitAll()
+
+
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/usuario/**").hasAnyRole("USER","ADMIN")
                         .anyRequest().authenticated())

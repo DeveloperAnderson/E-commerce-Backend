@@ -14,7 +14,7 @@ public class JwtUtil {
     public String createToken(String username) {
         return JWT.create()
                 .withSubject(username)
-                .withIssuer("MiMascota")
+                .withIssuer("E-Commerce")
                 .withIssuedAt(new Date()).withExpiresAt(new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(10)))
                 .sign(TokenJwtConfig.SECRET_KEY);
     }

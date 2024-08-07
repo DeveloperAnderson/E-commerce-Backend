@@ -28,7 +28,7 @@ public class UserSecurityService  implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         System.out.println("Buscando usuario...");
         System.out.println("Buscando usuario...");
-        UserEntity user = this.userRepository.findById(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        UserEntity user = this.userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
         System.out.println("Usuario encontrado... "+ user.getUsername());
         System.out.println("Usuario locked ... "+ user.getLocked());
         System.out.println("Usuario disable ... "+ user.getDisabled());
